@@ -8,15 +8,24 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
 
 
-def resource_path(relative_path):
+def resource_path(relative_path: str) -> str:
+    '''
+    Get absolute path to resource, works for dev and for PyInstaller
+    '''
     try:
         base_path = sys._MEIPASS
+
     except Exception:
         base_path = os.path.dirname(__file__)
+
     return os.path.join(base_path, relative_path)
 
 
-def main():
+def main() -> None:
+    '''
+    A simple selenium application that goes to http://quotes.toscrape.com/ to perform a login action with dummy credentials
+    '''
+
     def check_if_element_exist(xpath: str) -> bool:
         try:
             driver.find_element_by_xpath(xpath)
@@ -57,6 +66,7 @@ def main():
     assert check_if_element_exist('//a[@href="/logout"]') == True
     driver.close()
     print('Yay!')
+    # End
 
 
 if __name__ == '__main__':
