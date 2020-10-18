@@ -30,4 +30,8 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False )
+          console=False , icon='favicon.ico')
+
+import shutil
+shutil.copyfile('example.ini', '{0}/example.ini'.format(DISTPATH))
+shutil.copyfile('example.json', '{0}/example.json'.format(DISTPATH))
