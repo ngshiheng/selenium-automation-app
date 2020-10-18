@@ -17,21 +17,24 @@ Setting up a Python project can be frustrating for non-developers. From download
 1. Make sure [pyinstaller](https://pypi.org/project/pyinstaller/) and [seleniums](https://selenium-python.readthedocs.io/) are installed
 
 ```sh
-pip install pyinstaller
-pip install selenium
 
-# NOTE: I had to install these at global level
+# For your other projects
+pipenv install pyinstaller
+pipenv install selenium
+
+# For this project
+pipenv install --dev
 ```
 
 2. Download a copy of a `chromedriver.exe` from [here](https://chromedriver.chromium.org/downloads) and place it in a folder i.e. `driver/`
 
-3. Run `pyinstaller` with `--onefile` option to create a single executable file for easy distribution
+3. Run `pyi-makespec` with `--onefile` option to create a single executable file for easy distribution
 
 ```sh
-pyinstaller .\main.py --onefile --noconsole --add-binary "driver\chromedriver.exe;driver\" --add-data "example.json;." --add-data "example.ini;." --name selenium-automation-exe --icon=favicon.ico
+pyi-makespec main.py --onefile --noconsole --add-binary "driver\chromedriver.exe;driver\" --add-data "example.json;." --add-data "example.ini;." --name selenium-automation-exe --icon=favicon.ico
 ```
 
-4. _Optional_: This program reads data from `example.json` and `example.ini`. To make these 2 files _customizable_ by the end users, append code below at the end of your `*.spec` file
+4. _Optional_: This program reads data from `example.json` and `example.ini`. To make these 2 files _customizable_ by the end users, append code below at the end of your `*.spec` file. [Example](example/selenium-automation-exe.spec)
 
 ```spec
 import shutil

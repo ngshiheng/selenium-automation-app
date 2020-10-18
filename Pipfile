@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 selenium = "*"
+pyinstaller = "*"
 
 [dev-packages]
 autopep8 = "*"
