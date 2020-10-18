@@ -35,14 +35,18 @@ def main() -> None:
 
         return True
 
-    # Reads data from `example.ini`
+    # Reads data from `example.ini`.
     config = ConfigParser()
-    config.read(resource_path('example.ini'))
+
+    # NOTE: We do not use `resource_path` here because we want the generated `exe` to always read from this file based on users' configuration
+    config.read('example.ini')
+
     text = config.get('example', 'text')
     print(f'Reading text={text} from config.ini')
 
     # Reads data from 'example.json
-    with open(resource_path('example.json'), 'r') as f:
+    # NOTE: We do not use `resource_path` here because we want the generated `exe` to always read from this file based on users' configuration
+    with open('example.json', 'r') as f:
         credentials = json.load(f)
         username = credentials['username']
         print(f'Getting username={username} from json')
