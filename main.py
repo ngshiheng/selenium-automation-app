@@ -54,18 +54,21 @@ def main() -> None:
     driver = webdriver.Chrome(resource_path('driver\chromedriver.exe'))
     driver.get('http://quotes.toscrape.com/')
 
+    # Clicks the 'login' button
     driver.find_element_by_xpath('//a[@href="/login"]').click()
 
+    # Enters dummy username
     username_form_input = driver.find_element_by_id('username')
     username_form_input.send_keys(username)
 
+    # Enter dummy password
     password_form_input = driver.find_element_by_id('password')
     password_form_input.send_keys(password)
     password_form_input.send_keys(Keys.ENTER)
 
+    # Quick way to make sure you're 'logged in'
     assert check_if_element_exist('//a[@href="/logout"]') == True
     driver.close()
-    print('Yay!')
     # End
 
 
