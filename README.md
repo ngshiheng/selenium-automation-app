@@ -1,6 +1,6 @@
 # Problem Statement
 
-Setting up a Python project can be frustrating for non-developers. From downloading the right version of `python`, setting up virtual environment and installing dependencies.
+Setting up a Python project can be frustrating for non-developers. From downloading the right version of `python`, setting up virtual environment to installing dependencies.
 
 `pyinstaller` helps to abstract all these by bundling all your dependencies together. This project demonstrates:
 
@@ -31,7 +31,7 @@ pipenv install --dev
 3. Run `pyi-makespec` with `--onefile` option to create a single executable file for easy distribution
 
 ```sh
-pyi-makespec main.py --onefile --noconsole --add-binary "driver\chromedriver.exe;driver\" --add-data "example.json;." --add-data "example.ini;." --name selenium-automation-exe --icon=favicon.ico
+pyi-makespec main.py --onefile --noconsole --add-binary "driver\chromedriver.exe;driver\" --add-data "example.json;." --add-data "example.ini;." --name selenium-automation-exe --icon=favicon.ico --console
 ```
 
 4. _Optional_: This program reads data from `example.json` and `example.ini`. To make these 2 files _customizable_ by the end users, append code below at the end of your `*.spec` file. [Example](example/selenium-automation-exe.spec)

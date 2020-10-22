@@ -30,7 +30,7 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False , icon='favicon.ico')
+          console=True , icon='favicon.ico')
 
 import shutil
 shutil.copyfile('example.ini', '{0}/example.ini'.format(DISTPATH))
